@@ -1,36 +1,43 @@
-import styled from "styled-components";
 import { Switch, Route } from "react-router-dom";
 import PageHeader from "./components/PageHeader";
 import Home from "./pages/Home";
 import RecipeDetails from "./pages/RecipeDetails";
 import SearchResult from "./pages/SearchResult";
+import { Row, Col } from "antd";
 
-const Page = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
-  grid-template-rows: 80px auto 100px;
-  grid-template-areas:
-    "header header header"
-    ". main ."
-    "footer footer footer";
-`;
+const contentStyle = {
+  margin: "20px 0",
+  padding: "20px",
+  background: "#d9f7be",
+  borderRadius: "4px",
+};
 
 function App() {
   return (
-    <Page>
-      <PageHeader></PageHeader>
-      <Switch>
-        <Route exact path="/recipes">
-          <SearchResult />
-        </Route>
-        <Route exact path="/recipe/:id">
-          <RecipeDetails />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Page>
+    <>
+      <Row>
+        <Col span={24}>
+          <PageHeader></PageHeader>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={3}></Col>
+        <Col style={contentStyle} span={18}>
+          <Switch>
+            <Route exact path="/recipes">
+              <SearchResult />
+            </Route>
+            <Route exact path="/recipe/:id">
+              <RecipeDetails />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Col>
+        <Col span={3}></Col>
+      </Row>
+    </>
   );
 }
 

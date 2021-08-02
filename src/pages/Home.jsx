@@ -1,19 +1,12 @@
-import styled from "styled-components";
+import { Typography } from "antd";
 
-const HomePage = styled.div`
-  grid-area: main;
-  padding: 20px;
-  background-color: rgb(233, 233, 233);
-  border-radius: 4px;
-`;
+const { Title } = Typography;
 
 export default function Home() {
   return (
-    <HomePage>
-      <h1>
-        Here you can find any recipes! Just write orange, milk, coca-cola or any
-        else and go to search.
-      </h1>
-    </HomePage>
+    <Title level={3} style={{ textAlign: "center" }}>
+      Here you can find any recipes! Just write orange, milk, coca-cola or any
+      else and go to search.
+    </Title>
   );
 }
